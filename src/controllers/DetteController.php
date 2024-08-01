@@ -11,11 +11,36 @@ class DetteController
     {
          $this->detteModel = new DetteModel;
     }
-    public function listeDette()
-    {
-        $this->rendorView("dette/liste");
-    }
 
+ public function indexDette(){
+    if(isset($_REQUEST["action"])){
+        $action=$_REQUEST["action"];
+        if($action=="liste"){
+            $this->listeDette();
+        }elseif ($action=="add") {
+            $this->addDette();
+           
+        }
+        elseif ($action=="detail") {
+            $this->detailDette();
+           
+        }
+    }
+    
+ }
+   
+ public  function listeDette()
+ {
+    self::rendorView("dette/liste");
+ }
+ public function addDette()
+ {
+     $this->rendorView("dette/addDette");
+ }
+ public function detailDette()
+ {
+     $this->rendorView("dette/detail");
+ }
     public function rendorView(string $view, array $datas=[]):void{
         extract($datas);
         ob_start();

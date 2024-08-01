@@ -8,13 +8,13 @@ if(isset($_REQUEST["contoller"])){
     $controller = $_REQUEST["contoller"];
     if($controller=="dette"){
         $controller= new DetteController();
-        $controller->listeDette();
-
+        $controller->indexDette();
     }
+
 
 }else{
     $controller= new DetteController();
-    $controller->listeDette();
+    $controller->indexDette();
 }
 
 ?>
