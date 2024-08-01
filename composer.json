@@ -1,0 +1,19 @@
+{
+    "name": "dell/examen-hp-s2",
+    "autoload": {
+        "psr-4": {  
+            "Bank\\App\\": "src/",
+            "Bank\\Models\\": "src/models/",
+            "Bank\\Controllers\\": "src/controllers/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Awa",
+            "email": "awamoussasene@gmail.com"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "^5.3"
+    }
+}
