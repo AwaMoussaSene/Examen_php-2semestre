@@ -4,7 +4,15 @@
         "psr-4": {  
             "Bank\\App\\": "src/",
             "Bank\\Models\\": "src/models/",
-            "Bank\\Controllers\\": "src/controllers/"
+            "Bank\\Controllers\\": "src/controllers/",
+            "Bank\\Core\\Controller\\": "src/core/controller/",
+            "Bank\\Core\\Session\\": "src/core/session/",
+            "Bank\\Core\\Validator\\": "src/core/validator/",
+            "Bank\\Core\\Model\\": "src/core/model/"
+
+            
+
+
         }
     },
     "authors": [

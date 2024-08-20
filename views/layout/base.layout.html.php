@@ -28,11 +28,11 @@
             <div class=" col-2  shadow site-bar border-top rounded">
                 <ul class="list-group mt-5 ">
                     <li class="list-group-item liste bg-transparent border-0">
-                        <a href="" class="list-group-item   liste d-flex align-item-center border border-0 "> <span
+                        <a href="<?= WEBROOT ?>/?controller=dashboard&action=dashboard" class="list-group-item   liste d-flex align-item-center border border-0 "> <span
                                 class="material-symbols-outlined px-2"> dashboard </span>Dashboard</a>
                     </li>
                     <li class="list-group-item liste1 bg-transparent border-0">
-                        <a href="<?= WEBROOT ?>/?controller=dette"
+                        <a href="<?= WEBROOT ?>/?controller=dette&action=liste"
                             class="list-group-item  d-flex align-item-center border border-0 text-light"><span
                                 class="material-symbols-outlined px-2"> checkbook </span>Liste dettes</a>
                     </li>
@@ -52,7 +52,7 @@
                                 class="material-symbols-outlined px-2"> date_range </span>faire depot</a>
                     </li>
                     <li class="list-group-item  liste-end bg-transparent border-0">
-                        <a href="" class="list-group-item   liste d-flex align-item-center border border-0 "> <span
+                        <a href="<?= WEBROOT ?>/?controller=login&action=logout" class="list-group-item   liste d-flex align-item-center border border-0 "> <span
                                 class="material-symbols-outlined px-2">
                                 keyboard_double_arrow_left
                             </span>Deconnexion</a>
@@ -61,7 +61,7 @@
 
             </div>
 
-            <div class=" border border-0 shadow mt-2 main  ">
+            <div class=" border border-0 shadow mt-2 main bg-light ">
                 <?= $contentForView ?>
 
 

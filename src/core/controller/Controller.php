@@ -1,7 +1,18 @@
 <?php 
+namespace Bank\Core\Controller;
+use Bank\Core\Session\Session;
+use Bank\Core\Validator\Validator;
+
  class Controller 
 {
+    protected Session $session;
+    protected Validator $validator;
     protected $layout="base";
+
+    public function __construct(){
+        $this->validator = new Validator();
+        $this->session = new Session();
+    }
     public function rendorView(string $view, array $datas=[]):void{
         extract($datas);
         ob_start();
@@ -12,9 +23,10 @@
     }
     public function redirectToRoute(array $route){
         extract($route);
-        header("Location:".WEBROOT."/?ressource=$ressource&controller=$controller&action=$action");
+        header("Location:".WEBROOT."/?controller=$controller&action=$action");
         exit;
     }
-    
 }
+
+
         
