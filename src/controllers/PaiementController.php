@@ -17,20 +17,28 @@ class PaiementController extends Controller
 
     public function indexPaiement()
     {
-
-        if (isset($_REQUEST["action"])) {
-            $action = $_REQUEST["action"];
-            if ($action == "detail") {
-                $this->detailDette();
-
-            }
-            if ($action == "recu") {
-                $this->recu();
-
-            }
+        if($this->autorisation->isConnect() && $_REQUEST["controller"]!== "login"){
+            if (isset($_REQUEST["action"])) {
+                $action = $_REQUEST["action"];
+                if ($action == "detail") {
+                    if($this->autorisation->hasRole("client")){
+                        $this->layout = "client";
+                        $this->detailDette();
+                    }
+                    $this->detailDette();
+                }
+                if ($action == "recu") {
+                    $this->recu();
+    
+                }
+        }else{
+            $this->redirectToRoute([
+                "controller" => "login",
+                "action" => "show-form" 
+            ]);
         }
 
-
+}
 
     }
     public function detailDette()

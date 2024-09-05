@@ -21,9 +21,17 @@ class DashboardController extends Controller
 
     public function indexDashboard()
     {
-        if ($_REQUEST["action"] == "dashboard") {
-            $this->dashboard();
-        }
+        if($this->autorisation->isConnect() && $_REQUEST["controller"]!== "login"){
+            if ($_REQUEST["action"] == "dashboard") {
+                $this->dashboard();
+            }
+        }else{
+            $this->redirectToRoute([
+                "controller" => "login",
+                "action" => "show-form" 
+            ]);        }
+
+
     }
 
     public function dashboard()

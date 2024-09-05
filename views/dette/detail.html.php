@@ -1,8 +1,15 @@
 <div class=" div-tabe bg-light p-2  rounded mt-3 ">
     <div class="container  d-flex">
-        <a href="<?= WEBROOT . "/?controller=dette&action=liste" ?>"><span class="material-symbols-outlined">
+        <?php if ($this->autorisation->hasRole("boutiquier")): ?>
+            <a href="<?= WEBROOT . "/?controller=dette&action=liste" ?>"><span class="material-symbols-outlined">
                 reply_all
             </span> </a>
+        <?php endif?>
+        <?php if ($this->autorisation->hasRole("client")): ?>
+            <a href="<?= WEBROOT . "/?controller=client&action=Client-connect" ?>"><span class="material-symbols-outlined">
+                reply_all
+            </span> </a>
+        <?php endif?>
         <h5 class="mx-2 ">detail dette</h5>
     </div>
     <div class="container-fluid col-12 mt-2 shadow d-flex justify-content-between rounded">
@@ -23,8 +30,7 @@
             </div>
         </div>
     </div>
-
-    <!-- <hr> -->
+    <?php if ($this->autorisation->hasRole("boutiquier")): ?>
     <div class="add-qtes p-2 mt-4 shadow bg-light d-flex align-item-center justify-content-between ">
         <form acton="" method="post" class="col-md-6 d-flex align-items-center mt-4  ">
                 <label for="montant" class="form-label  mx-3">Montant:</label>
@@ -38,8 +44,9 @@
                 valider
             </button>
         </form>
-
     </div>
+    <?php endif?>
+
     <div class=" form-add-dett bg-transparent mt-5  rounded  d-flex align-item-center justify-content-around">
         <div class="container w-100    rounded ">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

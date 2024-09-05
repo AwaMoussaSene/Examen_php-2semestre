@@ -1,17 +1,22 @@
 <?php 
 namespace Bank\Core\Controller;
+use Bank\Core\Autorisation\Autorisation;
 use Bank\Core\Session\Session;
 use Bank\Core\Validator\Validator;
+
 
  class Controller 
 {
     protected Session $session;
     protected Validator $validator;
+    protected Autorisation  $autorisation;
+
     protected $layout="base";
 
     public function __construct(){
         $this->validator = new Validator();
         $this->session = new Session();
+        $this->autorisation = new Autorisation();
     }
     public function rendorView(string $view, array $datas=[]):void{
         extract($datas);
@@ -26,6 +31,7 @@ use Bank\Core\Validator\Validator;
         header("Location:".WEBROOT."/?controller=$controller&action=$action");
         exit;
     }
+    
 }
 
 

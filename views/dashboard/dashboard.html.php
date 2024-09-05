@@ -33,7 +33,7 @@
         <div class="container col-8 mt-2">
                 <h6>Stock d'articles</h6>
                 <h6><?=$sumStocks[0]->stock_total?></h6>
-                <h6><?=$sumStockVendu[0]->stock_vendu?></h6>
+                <h6><?=$sumStockVendu[0]->stock_vendu?> article vendu</h6>
             </div>
             <div class="container certe-img col-4 mt-2">
                 <img src="../assets/produit.png" alt="">

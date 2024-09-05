@@ -57,7 +57,8 @@ class DetteModel extends Model
             }
 
             $sql .= " GROUP BY d.iddet
-                    HAVING verse <= d.montant";
+                    HAVING verse <= d.montant
+                    ORDER BY d.dated DESC";
 
             $statement = $this->pdo->prepare($sql);
 
@@ -107,4 +108,9 @@ public function sommeDettesDuJour() {
         $n = mt_rand(0, 9999999999);
         return 'DET' . str_pad($n, 10, '0', STR_PAD_LEFT);
     }
+
+public function findByClient($idclient){
+    $sql = "SELECT * FROM dette d join client c on c.idclient=d.idclient WHERE d.idclient =$idclient";
+    return parent::query($sql);
+}
 }

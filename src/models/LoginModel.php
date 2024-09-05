@@ -9,14 +9,27 @@ class LoginModel extends Model
     {
         parent::__construct();
     }
-    public function connexion(string $email, string $pwd){
-        $sql = "SELECT * FROM boutiquier WHERE email = :email AND pwd = :pwd";
+    public function connexion(string $email, string $pwd)
+    {
+        $sql = "SELECT pwd, email, 'boutiquier' AS roles FROM boutiquier WHERE email = :email AND pwd = :pwd";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             'email' => $email,
             'pwd' => $pwd,
         ]);
-        return $stmt->fetch(); // Retourne un tableau associatif si l'utilisateur est trouvé, sinon false.
+        $result = $stmt->fetch(); 
+
+        if (!$result) {
+            $sql = "SELECT idclient, pwd, email, 'client' AS roles FROM client WHERE email = :email AND pwd = :pwd";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                'email' => $email,
+                'pwd' => $pwd,
+            ]);
+            $result = $stmt->fetch();
+        }
+
+        return $result ?: false;
     }
- 
+
 }

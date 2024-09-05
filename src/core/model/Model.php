@@ -4,7 +4,7 @@ class Model{
   protected \PDO|null $pdo=null;
  public  function __construct(){
     if ( $this->pdo==null) {
-        $this->pdo= new \PDO('mysql:host=localhost;dbname=gestion_boutique;charset=utf8',"root","");
+        $this->pdo= new \PDO('mysql:host=localhost;dbname=bd_gestion_boutique;charset=utf8',"root","");
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
         $this->pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE,\PDO::FETCH_OBJ,);
     }

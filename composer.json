@@ -6,9 +6,11 @@
             "Bank\\Models\\": "src/models/",
             "Bank\\Controllers\\": "src/controllers/",
             "Bank\\Core\\Controller\\": "src/core/controller/",
+            "Bank\\Core\\Autorisation\\": "src/core/autorisation/",
             "Bank\\Core\\Session\\": "src/core/session/",
             "Bank\\Core\\Validator\\": "src/core/validator/",
             "Bank\\Core\\Model\\": "src/core/model/"
+
 
             
 
@@ -22,6 +24,8 @@
         }
     ],
     "require": {
-        "twbs/bootstrap": "^5.3"
+        "twbs/bootstrap": "^5.3",
+        "phpmailer/phpmailer": "^6.9",
+        "endroid/qr-code": "^4.8"
     }
 }
